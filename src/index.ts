@@ -4,12 +4,16 @@ export function helloWorld() {
 }
 
 export function goodBye() {
-  const x = 1
   const message = 'Goodbye from my example modern npm package!'
   return message
+}
+
+export function greeting() {
+  console.log('hello world')
 }
 
 export default {
   helloWorld,
   goodBye,
+  greeting,
 }
