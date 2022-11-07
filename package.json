@@ -1,0 +1,47 @@
+{
+  "name": "@thammarat/simple-npm-package",
+  "version": "1.0.1",
+  "description": "An npm package for demonstration purposes using TypeScript to build for both the ECMAScript Module format (i.e. ESM or ES Module) and CommonJS Module format. It can be used in Node.js and browser applications.",
+  "types": "./lib/cjs/types/index.d.ts",
+  "main": "./lib/cjs/index.js",
+  "scripts": {
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./configs/tsconfig.esm.json && mv lib/esm/index.js lib/esm/index.mjs",
+    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json",
+    "test": "mocha"
+  },
+  "files": [
+    "lib/**/*"
+  ],
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/types/index.d.ts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thammarat02/simple-npm-package.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thammarat02/simple-npm-package/issues"
+  },
+  "homepage": "https://github.com/thammarat02/simple-npm-package#readme",
+  "devDependencies": {
+    "@types/chai": "^4.3.3",
+    "@types/mocha": "^10.0.0",
+    "chai": "^4.3.6",
+    "mocha": "^10.1.0",
+    "ts-node": "^10.9.1"
+  }
+}
