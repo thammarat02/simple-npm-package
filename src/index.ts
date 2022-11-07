@@ -8,12 +8,7 @@ export function goodBye() {
   return message
 }
 
-export function greeting() {
-  console.log('hello world')
-}
-
 export default {
   helloWorld,
   goodBye,
-  greeting,
 }
